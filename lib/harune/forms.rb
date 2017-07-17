@@ -1,34 +1,48 @@
+require_relative "kanji"
+
 class Harune
   class Forms
-    def initialize(base)
-      @base = base
+    def initialize(verb)
+      @verb = verb
     end
 
     def dictionary
-      "ある"
+      base + "る"
     end
 
     def masu
-      "あります"
+      base + "ります"
     end
 
     def conjunctive
-      "あり"
+      base + "り"
     end
 
     def not
-      "ない"
+      if base == "つく"
+        base + "らない"
+      else
+        "ない"
+      end
     end
 
     def ta
-      "あった"
+      base + "った"
     end
 
     def te
-      "あって"
+      base + "って"
     end
 
     private
-    attr_reader :base
+    attr_reader :verb
+
+    def v
+      verb.split("る").first
+    end
+
+    def base
+      @_base ||= Kanji.lookup(v)
+    end
   end
 end
