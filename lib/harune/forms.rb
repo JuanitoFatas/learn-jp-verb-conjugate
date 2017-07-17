@@ -7,20 +7,33 @@ class Harune
     end
 
     def dictionary
-      base + "る"
+      hiragana
     end
 
     def masu
-      base + "ります"
+      case base
+      when "ま"
+        base + "ちます"
+      else
+        base + "ります"
+      end
     end
 
     def conjunctive
-      base + "り"
+      case base
+      when "ま"
+        base + "ち"
+      else
+        base + "り"
+      end
     end
 
     def not
-      if base == "つく"
+      case base
+      when "つく"
         base + "らない"
+      when "ま"
+        base + "たない"
       else
         "ない"
       end
@@ -37,12 +50,25 @@ class Harune
     private
     attr_reader :verb
 
-    def v
-      verb.split("る").first
+    def hiragana
+      return @_hiragana if defined?(@_hiragana)
+
+      @_hiragana = begin
+        verb.chars.map do |char|
+          Kanji.to_hiragana(char)
+        end.join
+      end
     end
 
     def base
-      @_base ||= Kanji.lookup(v)
+      @_base ||= begin
+        case hiragana
+        when "まつ" then "ま"
+        when "かく" then "か"
+        else
+          hiragana.split("る").first
+        end
+      end
     end
   end
 end
