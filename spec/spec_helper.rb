@@ -16,4 +16,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-require_relative "./factories"
+$LOAD_PATH.unshift File.expand_path("../", __dir__)
+require "spec/factories"
+require "lib/harune"
