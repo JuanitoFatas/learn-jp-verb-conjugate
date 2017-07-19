@@ -22,6 +22,8 @@ class Harune
         base + "にます"
       when "はな"
         base + "します"
+      when "よ"
+        base + "みます"
       else
         base + "ります"
       end
@@ -39,6 +41,8 @@ class Harune
         base + "に"
       when "はな"
         base + "し"
+      when "よ"
+        base + "み"
       else
         base + "り"
       end
@@ -58,6 +62,8 @@ class Harune
         base + "なない"
       when "はな"
         base + "さない"
+      when "よ"
+        base + "まない"
       else
         "ない"
       end
@@ -69,7 +75,7 @@ class Harune
         base + "いた"
       when "およ"
         base + "いだ"
-      when "し"
+      when "し", "よ"
         base + "んだ"
       when "はな"
         base + "した"
@@ -82,7 +88,7 @@ class Harune
       case base
       when "か"
         base + "いて"
-      when "し"
+      when "し", "よ"
         base + "んで"
       when "およ"
         base + "いで"
@@ -115,6 +121,7 @@ class Harune
         when "およぐ" then "およ"
         when "いく" then "い"
         when "はなす" then "はな"
+        when "よむ" then "よ"
         else
           hiragana.split("る").first
         end
