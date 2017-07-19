@@ -16,6 +16,8 @@ class Harune
         base + "ちます"
       when "か"
         base + "きます"
+      when "し"
+        base + "にます"
       else
         base + "ります"
       end
@@ -27,6 +29,8 @@ class Harune
         base + "ち"
       when "か"
         base + "き"
+      when "し"
+        base + "に"
       else
         base + "り"
       end
@@ -40,22 +44,30 @@ class Harune
         base + "たない"
       when "か"
         base + "かない"
+      when "し"
+        base + "なない"
       else
         "ない"
       end
     end
 
     def ta
-      if base == "か"
-        "かいた"
+      case base
+      when "か"
+        base + "いた"
+      when "し"
+        base + "んだ"
       else
         base + "った"
       end
     end
 
     def te
-      if base == "か"
-        "かいて"
+      case base
+      when "か"
+        base + "いて"
+      when "し"
+        base + "んで"
       else
         base + "って"
       end
@@ -79,6 +91,7 @@ class Harune
         case hiragana
         when "まつ" then "ま"
         when "かく" then "か"
+        when "しぬ" then "し"
         else
           hiragana.split("る").first
         end
