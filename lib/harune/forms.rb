@@ -14,6 +14,8 @@ class Harune
       case base
       when "ま"
         base + "ちます"
+      when "か"
+        base + "きます"
       else
         base + "ります"
       end
@@ -23,6 +25,8 @@ class Harune
       case base
       when "ま"
         base + "ち"
+      when "か"
+        base + "き"
       else
         base + "り"
       end
@@ -34,17 +38,27 @@ class Harune
         base + "らない"
       when "ま"
         base + "たない"
+      when "か"
+        base + "かない"
       else
         "ない"
       end
     end
 
     def ta
-      base + "った"
+      if base == "か"
+        "かいた"
+      else
+        base + "った"
+      end
     end
 
     def te
-      base + "って"
+      if base == "か"
+        "かいて"
+      else
+        base + "って"
+      end
     end
 
     private
