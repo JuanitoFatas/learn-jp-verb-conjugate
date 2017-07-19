@@ -14,7 +14,7 @@ class Harune
       case base
       when "ま"
         base + "ちます"
-      when "か"
+      when "か", "い"
         base + "きます"
       when "およ"
         base + "ぎます"
@@ -29,7 +29,7 @@ class Harune
       case base
       when "ま"
         base + "ち"
-      when "か"
+      when "か", "い"
         base + "き"
       when "およ"
         base + "ぎ"
@@ -46,7 +46,7 @@ class Harune
         base + "らない"
       when "ま"
         base + "たない"
-      when "か"
+      when "か", "い"
         base + "かない"
       when "およ"
         base + "がない"
@@ -103,6 +103,7 @@ class Harune
         when "かく" then "か"
         when "しぬ" then "し"
         when "およぐ" then "およ"
+        when "いく" then "い"
         else
           hiragana.split("る").first
         end
